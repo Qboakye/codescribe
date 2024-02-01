@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { Center, Divider, Heading, VStack } from "@chakra-ui/react";
+import CodeMirror from '@uiw/react-codemirror';
 
 function App() {
+  const [text, setText] = useState("print(\"Hello world!\")");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Center h={"100vh"}>
+        <VStack boxShadow={'md'} p={4} borderStyle={"solid"} borderWidth={1} rounded={"lg"}>
+          <Heading>Code Editor</Heading>
+          <Divider />
+          <CodeMirror
+            value={text}
+            onChange={(newValue) => setText(newValue)}
+            //theme={githubLight}
+            //extensions={[python()]}
+            basicSetup={{ autocompletion: true }}
+            minWidth={'500px'}
+            minHeight={'500px'}
+          />
+        </VStack>
+      </Center>
     </div>
   );
 }
