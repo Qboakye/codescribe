@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Center h={"100vh"}>
         <VStack boxShadow={'md'} p={4} borderStyle={"solid"} borderWidth={1} rounded={"lg"}>
-          <Heading>Code Editor</Heading>
+          <Heading>CodeScribe Editor</Heading>
           <Divider />
           <CodeMirror
             value={text}
